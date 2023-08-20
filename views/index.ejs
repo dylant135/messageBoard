@@ -5,5 +5,30 @@
     </head>
     <body>
         <h1><%= locals.title %></h1>
+        <button type="button">New Message</button>
+        <div class="messagesContainer">
+            <h2><%= messages[0].text %></h2>
+        </div>
     </body>
+
+    <script>
+        const messages = locals.messages;
+        messages.forEach(message => {
+            const messageContainer = document.createElement('div')
+            const messagesContainer = document.querySelector('.messagesContainer')
+            const textMessage = document.createElement('h3')
+            const user = document.createElement('h3')
+            const added = document.createElement('h4')
+            textMessage.textContent(message.text)
+            user.textContent(message.user)
+            added.textContent(message.added)
+            messageContainer.appendChild(textMessage)
+            messageContainer.appendChild(user)
+            messageContainer.appendChild(added)
+            messagesContainer.appendChild(messageContainer)
+        });
+
+
+
+    </script>
 </html>
